@@ -1,13 +1,13 @@
 package scut.carson_ho.rxjava_operators.FunctionOperator;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.concurrent.TimeUnit;
 
+import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
@@ -18,9 +18,9 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import scut.carson_ho.rxjava_operators.R;
 import scut.carson_ho.rxjava_operators.EstablishOperator.Demo.GetRequest_Interface;
 import scut.carson_ho.rxjava_operators.EstablishOperator.Demo.Translation;
+import scut.carson_ho.rxjava_operators.R;
 
 /**
  * Created by Carson_Ho on 17/9/9.

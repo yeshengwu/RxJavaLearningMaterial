@@ -1,14 +1,16 @@
 package scut.carson_ho.rxjava_operators;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
+import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 
 
@@ -20,6 +22,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            String testEvanResult = testEvan(new Function<Integer, String>() {
+                @NonNull
+                @Override
+                public String apply(@NonNull Integer integer) throws Exception {
+                    return "apply param = "+integer +" return evan + "+integer;
+                }
+            });
+            Log.e("evan",""+testEvanResult);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         // 1. 每1s发送1个数据 = 从0开始，递增1，即0、1、2、3
@@ -404,7 +419,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private String testEvan(Function<Integer,String> function) throws Exception {
+       return function.apply(11);
+    }
 
 
 //        Observable.just(1,2,3,4,5,6)
